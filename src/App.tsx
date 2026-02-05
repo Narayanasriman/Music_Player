@@ -44,7 +44,7 @@ function App() {
 
   return (
     <div>
-      <h2>Now Playing</h2>
+      <h2>Now Playing!!</h2>
       <p>{songs[currentIndex].title}</p>
       <p>{songs[currentIndex].movie}</p>
 
