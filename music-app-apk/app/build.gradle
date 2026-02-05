@@ -24,7 +24,7 @@ def twaManifest = [
     applicationId: 'app.vercel.music_player_eta_livid.twa',
     hostName: 'music-player-eta-livid.vercel.app', // The domain being opened in the TWA.
     launchUrl: '/', // The start path for the TWA. Must be relative to the domain.
-    name: 'My Music', // The application name.
+    name: 'My Music App', // The application name.
     launcherName: 'Music', // The name shown on the Android Launcher.
     themeColor: '#000000', // The color used for the status bar.
     themeColorDark: '#000000', // The color used for the dark status bar.

@@ -10,6 +10,8 @@ interface Song {
 function App() {
   const [songs, setSongs] = useState<Song[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [hasUserPlayed, setHasUserPlayed] = useState(false);
+
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // fetch songs.json
@@ -19,19 +21,23 @@ function App() {
       .then((data: Song[]) => setSongs(data));
   }, []);
 
-  // auto play when song changes
+  // play only AFTER user interaction
   useEffect(() => {
-    if (audioRef.current && songs.length > 0) {
+    if (hasUserPlayed && audioRef.current) {
       audioRef.current.load();
       audioRef.current.play();
     }
-  }, [currentIndex, songs]);
+  }, [currentIndex, hasUserPlayed]);
 
-  // auto next song
   const playNext = () => {
     setCurrentIndex((prev) =>
       prev < songs.length - 1 ? prev + 1 : 0
     );
+  };
+
+  const handleSongClick = (index: number) => {
+    setCurrentIndex(index);
+    setHasUserPlayed(true);
   };
 
   if (!songs.length) return <p>Loading songs...</p>;
@@ -46,6 +52,7 @@ function App() {
         ref={audioRef}
         src={songs[currentIndex].src}
         controls
+        onPlay={() => setHasUserPlayed(true)} // detects play button click
         onEnded={playNext}
         onError={playNext}
       />
@@ -53,7 +60,7 @@ function App() {
       <hr />
 
       {songs.map((song, index) => (
-        <button key={song.id} onClick={() => setCurrentIndex(index)}>
+        <button key={song.id} onClick={() => handleSongClick(index)}>
           {song.title}
         </button>
       ))}

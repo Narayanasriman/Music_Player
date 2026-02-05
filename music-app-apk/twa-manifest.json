@@ -1,7 +1,7 @@
 {
   "packageId": "app.vercel.music_player_eta_livid.twa",
   "host": "music-player-eta-livid.vercel.app",
-  "name": "My Music",
+  "name": "My Music App",
   "launcherName": "Music",
   "display": "standalone",
   "themeColor": "#000000",
@@ -13,7 +13,7 @@
   "backgroundColor": "#000000",
   "enableNotifications": true,
   "startUrl": "/",
-  "iconUrl": "https://www.shutterstock.com/image-vector/music-note-icon-trendy-modern-placeholder-1663417051",
+  "iconUrl": "https://music-player-eta-livid.vercel.app/icon-512.png",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
     "path": "C:\\Users\\srimanarayana\\OneDrive\\Desktop\\music-app\\frontend\\music-app-apk\\android.keystore",
